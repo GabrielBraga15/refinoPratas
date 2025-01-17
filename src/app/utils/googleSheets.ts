@@ -1,17 +1,18 @@
 // src/utils/googleSheets.ts ou no arquivo onde está a função getGoogleSheetsClient
-import path from 'path';
+
 import { google } from 'googleapis';
 
-const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+
 const SPREADSHEET_ID = '1Q20g2hLf1D84p6FOG1jf_gIsVtcVGQyBKpmPnxTx9Vg';
 
 const getGoogleSheetsClient = async () => {
-    // Ajuste o caminho corretamente para apontar para src/app/api/sheets
-    const keyFilePath = path.join(process.cwd(), 'src', 'app', 'api', 'sheets', 'stockrefino-240e97b71329.json');
-
     const auth = new google.auth.GoogleAuth({
-        keyFile: keyFilePath,
-        scopes: SCOPES,
+        credentials: {
+            private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+            client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        },
+        projectId: process.env.GOOGLE_PROJECT_ID,
+        scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
     return google.sheets({ version: 'v4', auth });
