@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="w-full ">
-      <div className="flex rounded-2xl justify-between px-4 py-8 items-center">
+    <div className="w-full bg-white">
+      <div className="flex rounded-2xl justify-between px-4 py-8 items-center bg-white">
         <Link href="/">
           <Image src={logo} alt="" width={80} height={80} />
         </Link>
