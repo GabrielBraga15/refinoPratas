@@ -11,7 +11,7 @@ export default function Header() {
           <Image src={logo} alt="" width={80} height={80} />
         </Link>
         <Link href="/cart">
-          <ShoppingCart className="cursor-pointer" />
+          <ShoppingCart className="cursor-pointer text-black" />
         </Link>
       </div>
     </div>
