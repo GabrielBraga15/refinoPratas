@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/bebas-neue": "^5.1.1",
+    "@fontsource/montserrat": "^5.1.1",
     "dotenv": "^16.4.7",
     "googleapis": "^144.0.0",
     "lucide-react": "^0.473.0",
