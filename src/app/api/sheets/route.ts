@@ -8,12 +8,17 @@ export async function GET() {
 
     console.log("Dados obtidos com sucesso:", data);
 
-    // Se não for um array de arrays, logue a estrutura
     if (!Array.isArray(data) || !Array.isArray(data[0])) {
       console.error("Formato inesperado:", data);
     }
 
-    return NextResponse.json(data);
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+      },
+    });
   } catch (error) {
     console.error("Erro ao acessar o Google Sheets:", error);
     return NextResponse.json({ error: 'Erro ao acessar o Google Sheets', details: error }, { status: 500 });
