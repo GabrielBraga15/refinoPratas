@@ -93,6 +93,7 @@ export default function Card({
         <strong className="text-black uppercase h-6 mb-2 text-center">
           {name}
         </strong>
+
         {description && (
           <p className=" text-gray-700 text-center ">{description}</p>
         )}
@@ -115,7 +116,7 @@ export default function Card({
             >
               +
             </button>
-           
+            <p className="text-gray-500 text-sm">E: {currentStock}</p>
           </div>
 
           <button

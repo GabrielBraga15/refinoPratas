@@ -21,7 +21,7 @@ export default function Home() {
   >([]);
   const { cartItems, addToCart } = useCart();
 
-  // Carregar os dados da API e forçar a recarga, ignorando o localStorage
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
