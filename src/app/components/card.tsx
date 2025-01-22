@@ -78,7 +78,7 @@ export default function Card({
   };
 
   return (
-    <div className="bg-white w-56 rounded-lg flex justify-center flex-col items-center p-4">
+    <div className="bg-gray-200 w-56 rounded-lg flex justify-center flex-col items-center p-4">
       {/* Imagem clicável para abrir o modal */}
       <Image
         className="mt-4 mb-4 object-cover cursor-pointer"
@@ -90,7 +90,7 @@ export default function Card({
       />
 
       <div className="flex flex-col items-center gap-4">
-        <strong className="text-black uppercase h-6 mb-2 text-center">
+        <strong className="text-black uppercase h-6 mb-2 text-center font-bebas-neue text-2xl">
           {name}
         </strong>
 
@@ -130,8 +130,8 @@ export default function Card({
 
       {/* Modal de confirmação de compra */}
       {activeModal === "buy" && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-4 rounded-lg shadow-lg text-center">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-8 sm:px-0">
+          <div className="bg-white p-4 rounded-lg shadow-lg text-center ">
             <p className="text-green-500 font-bold mb-4">
               Produto adicionado ao carrinho
             </p>

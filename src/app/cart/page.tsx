@@ -78,7 +78,7 @@ export default function Cart() {
     <>
       <Header />
       <div className="bg-black">
-        <h1 className="text-amber-300 text-center py-4 text-3xl font-bold">
+        <h1 className="text-amber-300 text-center py-4 font-bold font-bebas-neue text-5xl">
           CARRINHO
         </h1>
         {cartItems.length > 0 && (
@@ -140,9 +140,9 @@ export default function Cart() {
             </div>
           ) : (
             <div className="flex justify-center items-center flex-col">
-              <p className="text-center pb-4">Seu carrinho está vazio.</p>
+              <p className="text-center font-bebas-neue text-2xl pb-4">Seu carrinho está vazio.</p>
               <Link href={"/"}>
-                <button className="bg-white hover:bg-slate-300 text-black px-4 py-4 rounded-full">
+                <button className="bg-white font-bold font-bebas-neue text-2xl hover:bg-slate-300 text-black px-4 py-4 rounded-full">
                   CLIQUE AQUI PARA ADICIONAR PRODUTOS AO CARRINHO
                 </button>
               </Link>

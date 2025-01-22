@@ -11,9 +11,13 @@ interface Model {
   description: string;
   preco: string;
   stock: number;
+  category: string[];  // Agora é um array de categorias
 }
 
+
+
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [models, setModels] = useState<Model[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [stockItems, setStockItems] = useState<
@@ -21,7 +25,6 @@ export default function Home() {
   >([]);
   const { cartItems, addToCart } = useCart();
 
-  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,6 +34,9 @@ export default function Home() {
         if (Array.isArray(data) && Array.isArray(data[0])) {
           const formattedData: Model[] = data.slice(1).map((row) => ({
             name: row[0],
+            preco: row[1],
+            stock: parseInt(row[2], 10),
+            description: row[3],
             image: row[4].includes("drive.google.com")
               ? row[4]
                   .replace(
@@ -39,10 +45,9 @@ export default function Home() {
                   )
                   .replace("/view?usp=drive_link", "")
               : row[4],
-            preco: row[1],
-            stock: parseInt(row[2], 10),
-            description: row[3],
+              category: row[5].split(",").map((cat: string) => cat.trim().toLowerCase()),
           }));
+          
 
           // Atualizar os modelos com os novos produtos
           setModels(formattedData);
@@ -99,13 +104,24 @@ export default function Home() {
     );
   };
 
-  const filteredModels = models.filter((model) =>
-    model.name.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredModels = models.filter(
+    (model) =>
+      (searchQuery === "" || 
+        model.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
+      (selectedCategory === "" || 
+        model.category.some((cat) => cat === selectedCategory.toLowerCase()))
   );
+  
+  
 
   return (
     <div className="bg-black h-full text-white">
-      <Search onSearch={(query) => setSearchQuery(query)} />
+      <Search
+        onSearch={(query, category) => {
+          setSearchQuery(query);
+          setSelectedCategory(category);
+        }}
+      />
       <div
         className="sm:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-4 p-6 bg-black 
   justify-center flex flex-col items-center"
