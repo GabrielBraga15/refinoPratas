@@ -90,7 +90,7 @@ export default function Card({
       />
 
       <div className="flex flex-col items-center gap-4">
-        <strong className="text-black uppercase h-6 mb-2 text-center font-bebas-neue text-2xl">
+        <strong className="text-black uppercase h-6 mb-2 text-center font-bebas-neue text-lg md:text-2xl">
           {name}
         </strong>
 
