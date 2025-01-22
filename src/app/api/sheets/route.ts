@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const range = 'Vendas!A1:E30'; // Ajuste conforme necessário
+    const range = 'Vendas!A1:F30'; // Ajuste conforme necessário
     const data = await getSheetData(range);
 
     console.log("Dados obtidos com sucesso:", data);
