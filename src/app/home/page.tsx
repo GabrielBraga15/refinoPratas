@@ -142,8 +142,8 @@ export default function Home() {
         onSearch={(query, category) => {
           setSearchQuery(query);
           setSelectedCategory(category);
-        }}
-      />
+
+        } } selectedGender={selectedGender}/>
       <div
         className="sm:grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-4 p-6 bg-black 
   justify-center flex flex-col items-center"
