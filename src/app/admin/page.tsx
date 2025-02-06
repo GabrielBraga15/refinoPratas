@@ -52,14 +52,14 @@ export default function AdminPage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Cadastrar Produto</h2>
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-300 text-black p-4 rounded-lg shadow-sm">
             <AddProductForm />
           </div>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Lista de Produtos</h2>
-          <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
+          <div className="bg-gray-300 text-white p-4 rounded-lg  shadow-sm">
             <ProductList />
           </div>
         </section>
