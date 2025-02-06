@@ -11,13 +11,15 @@ interface Model {
   description: string;
   preco: string;
   stock: number;
-  category: string[];  // Agora é um array de categorias
+  category: string[];
+  gender: string; // <-- Novo campo
 }
-
-
 
 export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedGender, setSelectedGender] = useState<
+    "masculino" | "feminino" | ""
+  >("");
   const [models, setModels] = useState<Model[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [stockItems, setStockItems] = useState<
@@ -45,9 +47,11 @@ export default function Home() {
                   )
                   .replace("/view?usp=drive_link", "")
               : row[4],
-              category: row[5].split(",").map((cat: string) => cat.trim().toLowerCase()),
+            category: row[5]
+              .split(",")
+              .map((cat: string) => cat.trim().toLowerCase()),
+            gender: row[6].toLowerCase(), // <-- Pegando o gênero da planilha
           }));
-          
 
           // Atualizar os modelos com os novos produtos
           setModels(formattedData);
@@ -106,16 +110,34 @@ export default function Home() {
 
   const filteredModels = models.filter(
     (model) =>
-      (searchQuery === "" || 
+      (searchQuery === "" ||
         model.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
-      (selectedCategory === "" || 
-        model.category.some((cat) => cat === selectedCategory.toLowerCase()))
+      (selectedCategory === "" ||
+        model.category.some((cat) => cat === selectedCategory.toLowerCase())) &&
+      (selectedGender === "" || model.gender === selectedGender) // <-- Filtro por gênero
   );
-  
-  
 
   return (
     <div className="bg-black h-full text-white">
+      <div className="flex justify-center gap-7">
+        <button
+          className={`${
+            selectedGender === "masculino" ? "bg-blue-500" : "bg-blue-400"
+          } font-bebas-neue text-2xl hover:bg-blue-500 transition-all duration-100 text-white px-4 py-4 rounded-full`}
+          onClick={() => setSelectedGender("masculino")}
+        >
+          PRATAS MASCULINAS
+        </button>
+        <button
+          className={`${
+            selectedGender === "feminino" ? "bg-pink-500" : "bg-pink-400"
+          } font-bebas-neue text-2xl hover:bg-pink-500 transition-all duration-100 text-white px-4 py-4 rounded-full`}
+          onClick={() => setSelectedGender("feminino")}
+        >
+          PRATAS FEMININAS
+        </button>
+      </div>
+
       <Search
         onSearch={(query, category) => {
           setSearchQuery(query);
