@@ -88,8 +88,9 @@ export async function GET() {
       price: row[1] || "",
       stock: row[2] || "",
       description: row[3] || "",
-      category: row[4] || "",
-      gender: row[5] || "",
+      imageUrl: row[4] || "", // Faltava incluir a imagem
+      category: row[5] || "",
+      gender: row[6] || "",  // Aqui o índice deve ser 6
     }));
 
     return NextResponse.json(products);
