@@ -101,7 +101,7 @@ const AddProductForm = () => {
         <option value="unissex">Unissex</option>
       </select>
 
-      <input className=" bg-white font-bold font-bebas-neue text-base  text-black px-4 py-4 rounded-full" type="file" accept="image/*" onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)} />
+      <input className=" bg-white font-bold font-bebas-neue text-base hover:bg-slate-300 text-black px-4 py-4 rounded-full" type="file" accept="image/*" onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)} />
 
       <button className="bg-green-700 font-bold font-bebas-neue text-base hover:bg-green-500 text-black px-2 py-2 rounded-full" type="submit">
         Cadastrar Produto

@@ -1,30 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const categories = [
-  "escama",
-  "duplo grume",
-  "pulseiras",
-  "3x1",
-  "pingente",
-  "produtos",
-];
+const maleCategories = ["escama", "duplo grume", "pulseiras", "3x1", "pingente"];
+const femaleCategories = ["anel", "pulseiras", "colar", "tornozeleira", "berloque", "brinco", "piercing", "conjuntos"];
 
-export default function Search({ onSearch }: { onSearch: (query: string, category: string) => void }) {
+export default function Search({ onSearch, selectedGender }: { onSearch: (query: string, category: string) => void, selectedGender: "masculino" | "feminino" | "" }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [categories, setCategories] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (selectedGender === "masculino") {
+      setCategories(maleCategories);
+    } else if (selectedGender === "feminino") {
+      setCategories(femaleCategories);
+    } else {
+      setCategories([]);
+    }
+  }, [selectedGender]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
-    onSearch(query, selectedCategory); // Chamar com categoria selecionada
+    onSearch(query, selectedCategory);
   };
 
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selected = e.target.value;
     setSelectedCategory(selected);
-    onSearch(searchQuery, selected); // Chamar com o texto já digitado
+    onSearch(searchQuery, selected);
   };
 
   return (
@@ -37,21 +42,21 @@ export default function Search({ onSearch }: { onSearch: (query: string, categor
           value={searchQuery}
           onChange={handleInputChange}
         />
-        <select
-          className="p-2 text-black rounded uppercase font-bebas-neue"
-          value={selectedCategory}
-          onChange={handleCategoryChange}
-        >
-          <option value="">Todas as categorias</option>
-          {categories.map((category) => (
-            <option className="uppercase" key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
+        {categories.length > 0 && (
+          <select
+            className="p-2 text-black rounded uppercase font-bebas-neue"
+            value={selectedCategory}
+            onChange={handleCategoryChange}
+          >
+            <option value="">Todas as categorias</option>
+            {categories.map((category) => (
+              <option className="uppercase" key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
     </div>
   );
 }
-
-
