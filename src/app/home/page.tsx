@@ -119,19 +119,19 @@ export default function Home() {
 
   return (
     <div className="bg-black h-full text-white">
-      <div className="flex justify-center gap-7">
+      <div className="flex justify-center gap-7 mb-4">
         <button
           className={`${
-            selectedGender === "masculino" ? "bg-blue-500" : "bg-blue-400"
-          } font-bebas-neue text-2xl hover:bg-blue-500 transition-all duration-100 text-white px-4 py-4 rounded-full`}
+            selectedGender === "masculino" ? "bg-blue-800" : "bg-blue-400"
+          } font-bebas-neue text-lg sm:text-2xl hover:bg-blue-800 transition-all duration-100 text-white px-2 py-2  sm:px-4 sm:py-4 rounded-full`}
           onClick={() => setSelectedGender("masculino")}
         >
           PRATAS MASCULINAS
         </button>
         <button
           className={`${
-            selectedGender === "feminino" ? "bg-pink-500" : "bg-pink-400"
-          } font-bebas-neue text-2xl hover:bg-pink-500 transition-all duration-100 text-white px-4 py-4 rounded-full`}
+            selectedGender === "feminino" ? "bg-pink-800" : "bg-pink-400"
+          } font-bebas-neue text-lg sm:text-2xl hover:bg-pink-800 transition-all duration-100 text-white px-2 py-2 sm:px-4 sm:py-4 rounded-full`}
           onClick={() => setSelectedGender("feminino")}
         >
           PRATAS FEMININAS
