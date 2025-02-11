@@ -183,7 +183,7 @@ export default function Cart() {
       {activeModal === "address" && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-lg font-bold mb-4">Informe o endereço:</h2>
+            <h2 className="text-lg font-bold mb-4 text-black">Informe o endereço:</h2>
             <textarea
               value={address}
               onChange={(e) => setAddress(e.target.value)}
