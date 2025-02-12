@@ -1,0 +1,10 @@
+name: Deploy Diário no Netlify
+on:
+  schedule:
+    - cron: "0 3 * * *"  # Horário UTC (00:00 no Brasil)
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Acionar Deploy no Netlify
+        run: curl -X POST -d {} "https://api.netlify.com/build_hooks/67acf4ec92451c20fd98a0e2L"
