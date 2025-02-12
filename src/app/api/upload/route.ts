@@ -8,7 +8,7 @@ import { google } from "googleapis";
 // Configuração do Google Drive e Google Sheets
 const DRIVE_FOLDER_ID = "YOUR_GOOGLE_DRIVE_FOLDER_ID";  // Substitua com o ID da pasta do Google Drive
 const SHEET_ID = "GOOGLE_PROJECT_ID";  // Substitua com o ID da sua planilha
-const SHEET_RANGE = "Vendas!A1:G100";  // Intervalo onde os dados serão inseridos
+const SHEET_RANGE = "Vendas!A1:H300";  // Intervalo onde os dados serão inseridos
 
 // Função para autenticar com as APIs do Google
 const authenticateGoogleAPI = async () => {
