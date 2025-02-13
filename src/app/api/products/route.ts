@@ -61,7 +61,7 @@ export async function POST(req: Request) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: SPREADSHEET_ID,
-      range: "Vendas!H300:",
+      range: "Vendas!A1:H100",
       valueInputOption: "RAW",
       requestBody: { values },
     });
@@ -78,7 +78,7 @@ export async function GET() {
   try {
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: "Vendas!A1:G1000",
+      range: "Vendas!A1:G300",
     });
 
     const rows = response.data.values || [];

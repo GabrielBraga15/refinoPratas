@@ -6,7 +6,7 @@ export async function GET() {
     const range = 'Vendas!A1:G300'; // Ajuste conforme necessário
     const data = await getSheetData(range);
 
-    
+
 
     if (!Array.isArray(data) || !Array.isArray(data[0])) {
       console.error("Formato inesperado:", data);
