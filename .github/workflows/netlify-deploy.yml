@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Acionar Deploy no Netlify
-        run: curl -X POST -d '{}' "https://api.netlify.com/build_hooks/67acf4ec92451c20fd98a0e2L"
+        run: curl -X POST -d {} https://api.netlify.com/build_hooks/67acf4ec92451c20fd98a0e2
