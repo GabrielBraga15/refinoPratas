@@ -78,10 +78,10 @@ export default function Card({
   };
 
   return (
-    <div className="bg-gray-200 w-56 rounded-lg flex justify-center flex-col items-center p-4">
+    <div className="bg-gray-200 h-[570px] w-56 rounded-lg flex justify-center flex-col items-center p-4">
       {/* Imagem clicável para abrir o modal */}
       <Image
-        className="mt-4 mb-4 object-cover cursor-pointer"
+        className="mt-4 mb-4 h-[300px] object-cover cursor-pointer"
         src={image}
         alt={name}
         width={280}
