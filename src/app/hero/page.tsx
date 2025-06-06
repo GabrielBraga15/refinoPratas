@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
         <p className="relative text-white text-3xl px-12 md:text-6xl font-bold z-10 text-center font-bebas-neue opacity-0 animate-slide-up">
-          Conquiste seu espaço com elegância e prata
+          Catálogo Refino Pratas
         </p>
       </div>
     </div>

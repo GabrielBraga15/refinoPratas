@@ -27,16 +27,14 @@ export default function Card({
   image,
   description,
   preco,
-  stockItems,
-  updateStock,
-  addToCart,
+ 
 }: CardProps) {
-  const [quantity, setQuantity] = useState(0);
+  {/*const [quantity, setQuantity] = useState(0);*/}
   const [activeModal, setActiveModal] = useState<
     "none" | "buy" | "image" | "error"
   >("none");
 
-  const currentStock =
+  {/*const currentStock =
     stockItems.find((item) => item.name === name)?.stock || 0;
 
   const increment = () => {
@@ -70,7 +68,7 @@ export default function Card({
       setActiveModal("error"); // Abre o modal de erro
     }
   };
-
+*/}
   const closeModalOnClickOutside = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       setActiveModal("none");
@@ -78,7 +76,7 @@ export default function Card({
   };
 
   return (
-    <div className="bg-gray-200 h-[570px] w-56 rounded-lg flex justify-center flex-col items-center p-4">
+    <div className="bg-gray-200 h-[470px] w-56 rounded-lg flex justify-center flex-col items-center p-4">
       {/* Imagem clicável para abrir o modal */}
       <Image
         className="mt-4 mb-4 h-[300px] object-cover cursor-pointer"
@@ -89,8 +87,8 @@ export default function Card({
         onClick={() => setActiveModal("image")}
       />
 
-      <div className="flex flex-col items-center gap-4">
-        <strong className="h-12 text-black uppercase mb-2 text-center font-bebas-neue text-lg md:text-2xl">
+      <div className="flex flex-col items-center gap-2">
+        <strong className="h-6 text-black uppercase mb-2 text-center font-bebas-neue text-lg md:text-2xl">
           {name}
         </strong>
 
@@ -99,7 +97,7 @@ export default function Card({
         )}
         <p className="text-gray-700 text-center font-bold">{preco}</p>
         <div className="flex flex-col">
-          <div className="flex justify-center gap-4 pb-2">
+      {/*    <div className="flex justify-center gap-4 pb-2">
             <p className="text-black font-bold">QTD</p>
             <button
               className="text-black max-h-6 bg-gray-300 px-2 rounded"
@@ -125,6 +123,7 @@ export default function Card({
           >
             ADICIONAR AO CARRINHO
           </button>
+          */}
         </div>
       </div>
 
