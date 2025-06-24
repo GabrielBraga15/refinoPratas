@@ -7,7 +7,7 @@ const categoriesList = [
   "Pingente",
   "Produtos",
   "Anel",
-  "Pulseira",
+  "Pulseiras",
   "Colar",
   "Tornozeleira",
   "Berloque",
